@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 const VideoSection = () => {
   const [videoLink, setVideoLink] = useState('');
 
+  const API_URL = 'https://news-webapp-backend.onrender.com';
+
+
   const convertToEmbedLink = (youtubeUrl) => {
     const videoId = youtubeUrl.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
     return videoId ? `https://www.youtube.com/embed/${videoId[1]}` : null;
@@ -11,9 +14,8 @@ const VideoSection = () => {
   useEffect(() => {
     const fetchVideoLink = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/settings');
+        const response = await fetch(`${API_URL}/settings`);
         const settings = await response.json();
-        // console.log(settings.videoLink);
         setVideoLink(convertToEmbedLink(settings.videoLink) || '');
       } catch (error) {
         console.error('Error fetching video link:', error);

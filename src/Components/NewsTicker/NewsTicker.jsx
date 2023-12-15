@@ -4,10 +4,13 @@ import './NewsTicker.css';
 const NewsTicker = () => {
   const [importantPosts, setImportantPosts] = useState([]);
 
+
+  const API_URL = 'https://news-webapp-backend.onrender.com';
+
   useEffect(() => {
     const fetchImportantPosts = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/important-posts');
+        const response = await fetch(`${API_URL}/important-posts`);
         const data = await response.json();
         setImportantPosts(data);
       } catch (error) {

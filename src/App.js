@@ -14,7 +14,6 @@ function App() {
         <Routes>
           <Route path = "/" element={<HomePage/>} />
           <Route path="/Login" element={<Login/>}/>
-          {/* // onLogin={handleLogin} */}
         </Routes>
       </BrowserRouter>
      </div>

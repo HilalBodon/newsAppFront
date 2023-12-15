@@ -26,10 +26,11 @@ const HomePage = () => {
   const [videoLink, setVideoLink] = useState('');
   const [isLoading, setLoading] = useState(true);
 
+  const API_URL = 'https://news-webapp-backend.onrender.com';
 
   const fetchCategoriesData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/categories');
+      const response = await fetch(`${API_URL}/categories`);
       return await response.json();
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -41,7 +42,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        let url = 'http://localhost:8080/api/posts?sort=createdAt,important';
+        let url = `${API_URL}posts?sort=createdAt,important`;
 
         if (selectedCategory) {
           url += `&category=${selectedCategory}`;
@@ -92,7 +93,7 @@ const HomePage = () => {
   useEffect(() => {
    const fetchVideoLink = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/settings');
+        const response = await fetch(`${API_URL}/settings`);
         const settings = await response.json();
         setVideoLink(settings.videoLink || ''); 
       } catch (error) {
@@ -107,7 +108,7 @@ const HomePage = () => {
 useEffect(() => {
   const fetchSettings = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/settings');
+      const response = await fetch(`${API_URL}/settings`);
       const data = await response.json();
 
       setShowNewsTicker(data.showNewsTicker);

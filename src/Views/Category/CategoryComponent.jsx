@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './CategoryComponent.css';
 
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'https://news-webapp-backend.onrender.com';
 
 const CategoryComponent = ({ updateCategories }) => {
   const [categories, setCategories] = useState([]);

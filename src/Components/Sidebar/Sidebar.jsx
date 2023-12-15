@@ -5,13 +5,14 @@ const Sidebar = ({ isOpen, onClose,
   onCategoryClick, updateCategories,
   onHomePageToggle, onPostComponentToggle,
   onCategoryToggle, onSettingsToggle, isValidToken }) => {
+  const API_URL = 'https://news-webapp-backend.onrender.com';
 
   const [categories, setCategories] = useState([]);
 
     useEffect(() => {
       const fetchCategories = async () => {
         try {
-          const response = await fetch('http://localhost:8080/api/categories');
+          const response = await fetch(`${API_URL}/categories`);
           const data = await response.json();
           setCategories(data);
         } catch (error) {
