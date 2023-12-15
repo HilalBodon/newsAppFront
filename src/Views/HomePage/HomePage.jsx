@@ -56,22 +56,6 @@ const HomePage = () => {
         console.error('Error fetching posts:', error);
       }
     };
-
-  //   const fetchData = async () => {
-  //     try {
-  //       const updatedCategories = await fetchCategoriesData();
-  //       setCategories(updatedCategories);
-  //     } catch (error) {
-  //       console.error('Error updating categories:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-
-  //   fetchPosts();
-  // }, [selectedCategory, updateTrigger]); 
-
-
   
         const fetchData = async () => {
           try {
