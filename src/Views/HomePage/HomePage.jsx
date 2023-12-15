@@ -42,7 +42,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        let url = `${API_URL}posts?sort=createdAt,important`;
+        let url = `${API_URL}/posts?sort=createdAt,important`;
 
         if (selectedCategory) {
           url += `&category=${selectedCategory}`;
