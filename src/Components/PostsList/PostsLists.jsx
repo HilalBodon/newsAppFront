@@ -15,7 +15,7 @@ const PostList = ({ posts, selectedCategory }) => {
         const categories = {};
 
         for (const categoryId of categoryIds) {
-          const response = await fetch(`${ApI_URL}/categories/${categoryId}`);
+          const response = await fetch(`${API_URL}/categories/${categoryId}`);
           const categoryData = await response.json();
           categories[categoryId] = categoryData.name;
         }
